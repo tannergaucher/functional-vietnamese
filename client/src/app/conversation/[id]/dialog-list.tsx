@@ -81,6 +81,9 @@ export default function DialogList({ dialog }: { dialog: Dialog[] }) {
   return (
     <section>
       {currentDialogWordSrc ? <audio src={currentDialogWordSrc}></audio> : null}
+      <Button onClick={toggleConversation} className="w-full h-20 rounded-none">
+        {isPlaying ? "Pause Conversation" : "Start Conversation"}
+      </Button>
       <ul>
         {dialog.map((d, index) => (
           <div key={d.id}>
@@ -135,12 +138,6 @@ export default function DialogList({ dialog }: { dialog: Dialog[] }) {
           </div>
         ))}
       </ul>
-      <Button
-        onClick={toggleConversation}
-        className="w-full h-20 rounded-lg rounded-tl-none rounded-tr-none"
-      >
-        {isPlaying ? "Pause Conversation" : "Start Conversation"}
-      </Button>
     </section>
   );
 }
